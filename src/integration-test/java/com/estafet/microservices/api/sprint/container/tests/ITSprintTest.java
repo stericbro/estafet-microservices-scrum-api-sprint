@@ -96,10 +96,10 @@ public class ITSprintTest {
 	@DatabaseSetup("ITSprintTest-data.xml")
 	public void testCalculateSprints() {
 		given().contentType(ContentType.JSON)
-			.body("{\r\n" + 
-					"	\"projectId\": 22,\r\n" + 
-					"	\"noDays\": 3,\r\n" + 
-					"	\"noSprints\": 3\r\n" + 
+			.body("{\r\n" +
+					"	\"projectId\": 22,\r\n" +
+					"	\"noDays\": 3,\r\n" +
+					"	\"noSprints\": 3\r\n" +
 					"}")
 		.when()
 			.post("/calculate-sprints")

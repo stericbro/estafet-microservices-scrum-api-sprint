@@ -69,7 +69,7 @@
 		<developerConnection>scm:git:https://github.com/stericbro/estafet-microservices-scrum-api-sprint.git</developerConnection>
 	  <tag>HEAD</tag>
   </scm>
-  
+
 	<dependencies>
 		<dependency>
 			<groupId>com.estafet.microservices.scrum</groupId>

@@ -15,7 +15,7 @@ import com.estafet.microservices.api.sprint.model.Sprint;
 @Component
 public class UpdateSprintProducer {
 
-	@Autowired 
+	@Autowired
 	private JmsTemplate jmsTemplate;
 	
 	public void sendMessage(Sprint sprint) {
