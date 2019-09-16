@@ -3,9 +3,9 @@ Microservices api for managing sprints and their lifecycle for the scrum demo ap
 ## What is this?
 This application is a microservice provides an API to create new sprints based on a supplied number of days. The API includes methods for retrieving information for each working day of the sprint. Sprints are run contiguously for a specific project. A sprint can only exist for one project.
 
-Each microservice has it's own git repository, but there is a master git repository that contains links to all of the repositories [here](https://github.com/Estafet-LTD/estafet-microservices-scrum).
+Each microservice has it's own git repository, but there is a master git repository that contains links to all of the repositories [here](https://github.com/stericbro/estafet-microservices-scrum).
 ## Getting Started
-You can find a detailed explanation of how to install this (and other microservices) [here](https://github.com/Estafet-LTD/estafet-microservices-scrum#getting-started).
+You can find a detailed explanation of how to install this (and other microservices) [here](https://github.com/stericbro/estafet-microservices-scrum#getting-started).
 ## API Interface
 
 ### Messaging
@@ -85,5 +85,5 @@ SPRINT_API_DB_PASSWORD=welcome1
 ## Domain Model States
 A sprint has three states. It can only progress from each state via the specific actions or events illustrated.
 
-![alt tag](https://github.com/Estafet-LTD/estafet-microservices-scrum-api-sprint/blob/master/SprintStateModel.png)
+![alt tag](https://github.com/stericbro/estafet-microservices-scrum-api-sprint/blob/master/SprintStateModel.png)
 
