@@ -15,17 +15,17 @@ import com.estafet.microservices.api.sprint.model.Sprint;
 @Component
 public class UpdateSprintProducer {
 
-	@Autowired
-	private JmsTemplate jmsTemplate;
+    @Autowired
+    private JmsTemplate jmsTemplate;
 
-	public void sendMessage(Sprint sprint) {
-		jmsTemplate.setPubSubDomain(true);
-		jmsTemplate.convertAndSend("update.sprint.topic", sprint.toJSON(), new MessagePostProcessor() {
-			@Override
-			public Message postProcessMessage(Message message) throws JMSException {
-				message.setStringProperty("message.event.interaction.reference", UUID.randomUUID().toString());
-				return message;
-			}
-		});
-	}
+    public void sendMessage(Sprint sprint) {
+        jmsTemplate.setPubSubDomain(true);
+        jmsTemplate.convertAndSend("update.sprint.topic", sprint.toJSON(), new MessagePostProcessor() {
+            @Override
+            public Message postProcessMessage(Message message) throws JMSException {
+                message.setStringProperty("message.event.interaction.reference", UUID.randomUUID().toString());
+                return message;
+            }
+        });
+    }
 }

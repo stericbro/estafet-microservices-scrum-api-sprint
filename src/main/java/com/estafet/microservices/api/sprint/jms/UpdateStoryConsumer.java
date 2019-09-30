@@ -15,29 +15,29 @@ import io.opentracing.Tracer;
 @Component
 public class UpdateStoryConsumer {
 
-	public final static String TOPIC = "update.story.topic";
+    public final static String TOPIC = "update.story.topic";
 
-	@Autowired
-	private Tracer tracer;
+    @Autowired
+    private Tracer tracer;
 
-	@Autowired
-	private SprintService sprintService;
+    @Autowired
+    private SprintService sprintService;
 
-	@Autowired
-	private MessageEventHandler messageEventHandler;
+    @Autowired
+    private MessageEventHandler messageEventHandler;
 
-	@Transactional
-	@JmsListener(destination = TOPIC, containerFactory = "myFactory")
-	public void onMessage(String message, @Header("message.event.interaction.reference") String reference) {
-		try {
-			if (messageEventHandler.isValid(TOPIC, reference)) {
-				sprintService.updateStory(Story.fromJSON(message));
-			}
-		} finally {
-			if (tracer.activeSpan() != null) {
-				tracer.activeSpan().close();
-			}
-		}
-	}
+    @Transactional
+    @JmsListener(destination = TOPIC, containerFactory = "myFactory")
+    public void onMessage(String message, @Header("message.event.interaction.reference") String reference) {
+        try {
+            if (messageEventHandler.isValid(TOPIC, reference)) {
+                sprintService.updateStory(Story.fromJSON(message));
+            }
+        } finally {
+            if (tracer.activeSpan() != null) {
+                tracer.activeSpan().close();
+            }
+        }
+    }
 
 }

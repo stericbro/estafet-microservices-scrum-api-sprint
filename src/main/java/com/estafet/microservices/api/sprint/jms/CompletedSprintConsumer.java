@@ -14,29 +14,29 @@ import io.opentracing.Tracer;
 @Component
 public class CompletedSprintConsumer {
 
-	public final static String TOPIC = "update.sprint.topic";
+    public final static String TOPIC = "update.sprint.topic";
 
-	@Autowired
-	private Tracer tracer;
+    @Autowired
+    private Tracer tracer;
 
-	@Autowired
-	private SprintService sprintService;
+    @Autowired
+    private SprintService sprintService;
 
-	@Autowired
-	private MessageEventHandler messageEventHandler;
+    @Autowired
+    private MessageEventHandler messageEventHandler;
 
-	@JmsListener(destination = TOPIC, containerFactory = "myFactory")
-	public void onMessage(String message, @Header("message.event.interaction.reference") String reference) {
-		Sprint sprint = Sprint.fromJSON(message);
-		try {
-			if (messageEventHandler.isValid(TOPIC, reference) && sprint.getStatus().equals("Completed")) {
-				sprintService.completedSprint(sprint.getId());
-			}
-		} finally {
-			if (tracer.activeSpan() != null) {
-				tracer.activeSpan().close();
-			}
-		}
-	}
+    @JmsListener(destination = TOPIC, containerFactory = "myFactory")
+    public void onMessage(String message, @Header("message.event.interaction.reference") String reference) {
+        Sprint sprint = Sprint.fromJSON(message);
+        try {
+            if (messageEventHandler.isValid(TOPIC, reference) && sprint.getStatus().equals("Completed")) {
+                sprintService.completedSprint(sprint.getId());
+            }
+        } finally {
+            if (tracer.activeSpan() != null) {
+                tracer.activeSpan().close();
+            }
+        }
+    }
 
 }

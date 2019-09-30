@@ -8,30 +8,30 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Project {
 
-	private Integer id;
+    private Integer id;
 
-	private Integer noSprints;
+    private Integer noSprints;
 
-	private Integer sprintLengthDays;
+    private Integer sprintLengthDays;
 
-	public Integer getId() {
-		return id;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public Integer getNoSprints() {
-		return noSprints;
-	}
+    public Integer getNoSprints() {
+        return noSprints;
+    }
 
-	public Integer getSprintLengthDays() {
-		return sprintLengthDays;
-	}
+    public Integer getSprintLengthDays() {
+        return sprintLengthDays;
+    }
 
-	public static Project fromJSON(String message) {
-		try {
-			return new ObjectMapper().readValue(message, Project.class);
-		} catch (IOException e) {
-			throw new RuntimeException(e);
-		}
-	}
+    public static Project fromJSON(String message) {
+        try {
+            return new ObjectMapper().readValue(message, Project.class);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 }
