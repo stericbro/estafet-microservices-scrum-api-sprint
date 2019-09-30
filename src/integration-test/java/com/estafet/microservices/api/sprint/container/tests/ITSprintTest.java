@@ -29,7 +29,7 @@ import io.restassured.http.ContentType;
 public class ITSprintTest {
 
 	NewSprintTopicConsumer newSprintTopicConsumer = new NewSprintTopicConsumer();
-	
+
 	@Before
 	public void before() {
 		RestAssured.baseURI = System.getenv("SPRINT_API_SERVICE_URI");
@@ -83,7 +83,7 @@ public class ITSprintTest {
 			.statusCode(HttpURLConnection.HTTP_OK)
 			.body(is("[\"2017-10-02 00:00:00\",\"2017-10-03 00:00:00\",\"2017-10-04 00:00:00\",\"2017-10-05 00:00:00\",\"2017-10-06 00:00:00\"]"));
 	}
-	
+
 	@Test
 	@DatabaseSetup("ITSprintTest-data.xml")
 	public void testGetSprintDay() {
@@ -109,7 +109,7 @@ public class ITSprintTest {
 			.body("endDate", hasSize(3))
 			.body("number", hasItems(1, 2, 3));
 	}
-	
+
 	@Test
 	@DatabaseSetup("ITSprintTest-data.xml")
 	public void testConsumeNewProject() {

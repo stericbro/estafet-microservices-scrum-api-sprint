@@ -17,7 +17,7 @@ public class UpdateSprintProducer {
 
 	@Autowired
 	private JmsTemplate jmsTemplate;
-	
+
 	public void sendMessage(Sprint sprint) {
 		jmsTemplate.setPubSubDomain(true);
 		jmsTemplate.convertAndSend("update.sprint.topic", sprint.toJSON(), new MessagePostProcessor() {

@@ -84,7 +84,7 @@ public class Story {
 			return false;
 		return true;
 	}
-	
+
 	public static Story fromJSON(String message) {
 		try {
 			return new ObjectMapper().readValue(message, Story.class);

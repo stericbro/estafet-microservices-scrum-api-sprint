@@ -14,14 +14,14 @@ public class SprintTest {
 		assertEquals("2017-10-20 00:00:00", sprint.getStartDate());
 		assertEquals("2017-10-24 00:00:00", sprint.getEndDate());
 	}
-	
+
 	@Test
 	public void testNewSprintMidWeek() {
 		Sprint sprint = new Sprint("2017-10-16 00:00:00", 1, 5);
 		assertEquals("2017-10-16 00:00:00", sprint.getStartDate());
 		assertEquals("2017-10-20 00:00:00", sprint.getEndDate());
 	}
-	
+
 	@Test
 	public void testChainSprintReferences() {
 		Sprint sprint1 = new Sprint(1, 3);
@@ -33,7 +33,7 @@ public class SprintTest {
 		assertSame(sprint2, sprint3.getPrevious());
 		assertNull(sprint3.getNext());
 	}
-	
+
 	@Test
 	public void testCalculateSprint() {
 		List<Sprint> sprints = Sprint.calculateSprints("2017-10-20 00:00:00", 1, 3, 3);
@@ -45,7 +45,7 @@ public class SprintTest {
 		assertEquals("2017-10-30 00:00:00", sprints.get(2).getStartDate());
 		assertEquals("2017-11-01 00:00:00", sprints.get(2).getEndDate());
 	}
-	
+
 	@Test
 	public void testChainSprintReferencesAddToRoot() {
 		Sprint sprint1 = new Sprint(1, 3);
@@ -60,7 +60,7 @@ public class SprintTest {
 		assertEquals(2, sprint2.getNumber().intValue());
 		assertEquals(3, sprint3.getNumber().intValue());
 	}
-	
+
 	@Test
 	public void testChainSprintDates() {
 		Sprint sprint1 = new Sprint("2017-10-20 00:00:00", 1, 3);
@@ -85,7 +85,7 @@ public class SprintTest {
 		assertEquals("2017-10-19 00:00:00", days.get(3));
 		assertEquals("2017-10-20 00:00:00", days.get(4));
 	}
-	
+
 	@Test
 	public void testGetSprintDaysOverWeekend() {
 		Sprint sprint = new Sprint("2017-10-20 00:00:00", 1, 3);

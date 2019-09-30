@@ -20,7 +20,7 @@ public class SprintDAO {
 
 	@Autowired
 	private UpdateSprintProducer updateSprintProducer;
-	
+
 	@Autowired
 	private NewSprintProducer newSprintProducer;
 

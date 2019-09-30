@@ -20,36 +20,36 @@ public class SprintController {
 
 	@Autowired
 	private SprintService sprintService;
-	
+
 	@GetMapping(value = "/api")
 	public Sprint getAPI() {
 		return Sprint.getAPI();
 	}
-			
+
 	@GetMapping(value = "/sprint/{id}")
 	public Sprint getSprint(@PathVariable int id) {
 		return sprintService.getSprint(id);
 	}
-	
+
 	@GetMapping(value = "/project/{id}/sprints")
 	public List<Sprint> getProjectSprints(@PathVariable int id) {
 		return sprintService.getProjectSprints(id);
 	}
-	
+
 	@GetMapping(value = "/sprint/{id}/days")
 	public List<String> getSprintDays(@PathVariable int id) {
 		return sprintService.getSprintDays(id);
 	}
-	
+
 	@GetMapping(value = "/sprint/{id}/day")
 	public String getSprintDay(@PathVariable int id) {
 		return sprintService.getSprintDay(id);
 	}
-	
+
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@PostMapping("/calculate-sprints")
 	public ResponseEntity calculateSprints(@RequestBody CalculateSprints message) {
 		return new ResponseEntity(sprintService.calculateSprints(message), HttpStatus.OK);
 	}
-	
+
 }

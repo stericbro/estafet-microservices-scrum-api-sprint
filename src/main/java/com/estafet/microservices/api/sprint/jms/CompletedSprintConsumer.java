@@ -15,13 +15,13 @@ import io.opentracing.Tracer;
 public class CompletedSprintConsumer {
 
 	public final static String TOPIC = "update.sprint.topic";
-	
+
 	@Autowired
 	private Tracer tracer;
 
 	@Autowired
 	private SprintService sprintService;
-	
+
 	@Autowired
 	private MessageEventHandler messageEventHandler;
 
@@ -34,7 +34,7 @@ public class CompletedSprintConsumer {
 			}
 		} finally {
 			if (tracer.activeSpan() != null) {
-				tracer.activeSpan().close();	
+				tracer.activeSpan().close();
 			}
 		}
 	}

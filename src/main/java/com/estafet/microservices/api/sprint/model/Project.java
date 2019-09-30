@@ -25,7 +25,7 @@ public class Project {
 	public Integer getSprintLengthDays() {
 		return sprintLengthDays;
 	}
-	
+
 	public static Project fromJSON(String message) {
 		try {
 			return new ObjectMapper().readValue(message, Project.class);
